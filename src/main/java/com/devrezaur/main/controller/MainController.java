@@ -46,4 +46,16 @@ public class MainController {
 	public Optional<Course> getCourse(@PathVariable("id") int id) {
 		return courseRepository.findById(id);
 	}
+	
+	@PostMapping("/student/add")
+	public Student addStudent(@RequestBody Student student) {
+		return studentRepository.save(student);
+	}
+	
+	@PostMapping("/course/add")
+	public Course addCourse(@RequestBody Course course) {
+		return courseRepository.save(course);
+	}
+	
+	
 }
