@@ -27,14 +27,14 @@ public class MainController {
 		return "Hello Zahid";
 	}
 	
-	@GetMapping("/student/all")
+	@GetMapping("/students/all")
 	public List<Student> getStudents(){
 		return studentRepository.findAll();
 	}
 	
-	@GetMapping("/student/101")
-	public Optional<Student> getStudent() {
-		return studentRepository.findById(101);
+	@GetMapping("/student/{id}")
+	public Optional<Student> getStudent(@PathVariable("id") int id) {
+		return studentRepository.findById(id);
 	}
 	
 	@GetMapping("/course/all")
@@ -42,4 +42,8 @@ public class MainController {
 		return courseRepository.findAll();
 	}
 	
+	@GetMapping("/course/{id}")
+	public Optional<Course> getCourse(@PathVariable("id") int id) {
+		return courseRepository.findById(id);
+	}
 }
