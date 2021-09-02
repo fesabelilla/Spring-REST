@@ -57,5 +57,20 @@ public class MainController {
 		return courseRepository.save(course);
 	}
 	
+	@PostMapping("/student/update")
+	public Student updateStudent(@RequestBody Student student) {
+		return studentRepository.save(student);
+	}
+	
+	@GetMapping("/student/{id}/delete")
+	public String deleteStudent(@PathVariable("id") int id) {
+		try {
+			studentRepository.deleteById(id);
+			return "Successful";
+		} catch (Exception e) {
+			return "Failed";
+		}
+	}
+	
 	
 }
